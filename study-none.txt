@@ -1,0 +1,55 @@
+
+
+
+2020-3-12
+问题1： git pull遇到错误：error: Your local changes to the following files would be overwritten by merge
+
+忘了先git pull到本地之后，直接在台式机上的代码进行编写，突然想起忘了pull了，然后想用git pull来更新本地代码。
+结果报错：
+
+error: Your local changes to the following files would be overwritten by merge:
+
+
+
+意思是我台式机上新修改的代码的文件，将会被git服务器上的代码覆盖；
+
+我当然不想刚刚写的代码被覆盖掉，看了git的手册，发现可以这样解决：
+
+
+
+
+方法1：
+如果你想保留刚才本地修改的代码，并把git服务器上的代码pull到本地（本地刚才修改的代码将会被暂时封存起来）
+
+
+
+
+git stash
+
+git pull origin master
+
+git stash pop
+
+
+
+
+如此一来，服务器上的代码更新到了本地，而且你本地修改的代码也没有被覆盖，之后使用add，commit，push 命令即可更新本地代码到服务器了。
+
+
+
+
+
+
+方法2
+如果你想完全地覆盖本地的代码，只保留服务器端代码，则直接回退到上一个版本，再进行pull：
+
+
+
+git reset --hard
+
+git pull origin master
+
+
+
+
+注：其中origin master表示git的主分支。
