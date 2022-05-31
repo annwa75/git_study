@@ -1,7 +1,4 @@
 this the first line in the file!
 add second line to the file！
-<<<<<<< HEAD
-I am newer for the git!
-=======
 add third line to the file!
->>>>>>> 99f05dc67be51cb7df1e7019794fbe2e497cc784
+I am newer for the git!
